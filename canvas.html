@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katharine Russell</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Noto+Sans" rel="stylesheet">
+
+    <link href="stylesheets/index.css" rel="stylesheet">
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html">Katharine Russell.</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="#">Code</a></li>
+              <li><a href="#">Photography</a></li>
+              </ul>
+          </div> <!-- /.navbar-collapse -->
+      </div> <!-- /.container-fluid -->
+  </nav>
+
+  <div class="row">
+    <button id="clear" class="btn btn-default" type="button" name="button">Clear</button>
+  </div>
+
+  <canvas id="draw" width="800" height="600"></canvas>
+
+  <script type="text/javascript">
+
+  // const canvas = document.getElementById('#draw');
+  const canvas = document.querySelector('#draw');
+  const canvascontext = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Get clearbutton
+  const clearbutton = document.querySelector('#clear');
+
+  // canvas context settings
+  canvascontext.strokeStyle = 'hsl(' + 360 * Math.random() + ', 50%, 50%)';
+  canvascontext.lineJoin = 'round';
+  canvascontext.lineCap = 'round';
+  canvascontext.lineWidth = 50;
+
+  // flag to check if clicked and drawing
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+  let hue = 360 * Math.random();
+
+  function draw(e){
+    if(!isDrawing) return;
+    console.log(e);
+    canvascontext.strokeStyle = `hsl(${hue}, 80%, 50%)`;
+    canvascontext.beginPath();
+
+    canvascontext.moveTo(lastX, lastY); //Start line
+    canvascontext.lineTo(e.offsetX, e.offsetY); //End line
+    canvascontext.stroke();
+    hue++;
+
+    //reset start line
+    lastX = e.offsetX;
+    lastY = e.offsetY;
+  }
+
+  // Main event code
+  canvas.addEventListener('mousemove', draw);
+  clearbutton.addEventListener('click', () => canvascontext.clearRect(0, 0, canvas.width, canvas.height));
+
+  //Switch flags for isDrawing
+
+  //on Mousedown change the starting point of your line
+  canvas.addEventListener('mousedown', () => {
+    isDrawing = true;
+    lastX = this.pageX;
+    lastY = this.pageY;
+  });
+
+  canvas.addEventListener('mouseup', ()=> isDrawing = false);
+  canvas.addEventListener('mouseout', ()=> isDrawing = false);
+
+  </script>
+
+  </body>
+</html>

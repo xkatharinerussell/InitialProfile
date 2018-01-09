@@ -53,14 +53,15 @@ a {
 p:nth-child(1) a {
   color: #fff;
   /*font-family: 'Bungee Shade', cursive;*/
-  font-family: 'Shrikhand', cursive;
-  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-  animation: neon1 1.5s ease-in-out infinite alternate;
+  /*font-family: 'Shrikhand', cursive;*/
+  font-family: 'Pacifico', cursive;
+  -webkit-animation: neon1 1.2s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.2s ease-in-out infinite alternate;
+  animation: neon1 1.2s ease-in-out infinite alternate;
 }
 
 p:nth-child(1) a:hover {
-  color: #FD5F00;
+  color: #fff;
   text-decoration: none;
   -webkit-animation: none;
   -moz-animation: none;
@@ -131,7 +132,7 @@ p a:hover {
 
 @-webkit-keyframes neon1 {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+    text-shadow: 0 0 10px #fff, 0 0 20px ##FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000, 0 0 70px #FF0000, 0 0 80px #FF0000;/*, 0 0 100px #FF1177; /*, 0 0 150px #FF1177;*/
   }
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;

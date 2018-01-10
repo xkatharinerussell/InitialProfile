@@ -93,6 +93,7 @@
 
   // Main event code
   canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('touchstart', draw);
   clearbutton.addEventListener('click', () => canvascontext.clearRect(0, 0, canvas.width, canvas.height));
 
   //Switch flags for isDrawing

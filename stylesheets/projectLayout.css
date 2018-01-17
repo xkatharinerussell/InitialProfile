@@ -1,0 +1,53 @@
+.project-container img:hover{
+  /*border-style: solid;
+  border-width: thick;
+  border-color: white;*/
+}
+
+.projectListing-right {
+  padding-top: 5%;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.projectListing-left {
+  padding-top: 5%;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.projectLabel {
+  padding-top: 7%;
+  font-weight: 700;
+}
+
+.projectLabel a{
+  font-size: 1.3em;
+  color: black;
+}
+
+.projectLabel a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.projectLabel p {
+  font-size: 0.8em;
+  font-weight: normal;
+  margin-top: 3%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.effect-zoom img:hover {
+  -webkit-transform: perspective(1000px) translate3d(0,0,21px);
+  	transform: perspective(1000px) translate3d(0,0,21px);
+}
